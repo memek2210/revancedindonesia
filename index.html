@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube ReVanced Indonesia</title>
+
+  <!-- Google Fonts: Legal Tender -->
+  <link href="https://fonts.googleapis.com/css2?family=Legal+Tender&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #d0d0d0;
+      font-family: 'Legal Tender', sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .title-red {
+      color: #FF0000;
+    }
+
+    p {
+      font-size: 1em;
+      margin-bottom: 30px;
+      color: #cccccc;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 220px;
+      padding: 12px 0;
+      font-size: 0.95em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 12px auto;
+      color: white;
+      background-color: #28a745;
+      transition: background-color 0.3s ease;
+    }
+
+    #timer, #timerMicroG {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .social {
+      margin-top: 40px;
+    }
+
+    .social a {
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.8em;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .social a:hover {
+      color: #1e90ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <span class="title-red">YouTube</span> <span class="title-red">Re</span>Vanced Indonesia
+  </h1>
+
+  <p>Sesuaikan pengalaman YouTube Anda dengan versi modifikasi terbaik buatan komunitas.</p>
+
+  <button id="downloadBtn" class="btn">YouTube ReVanced</button>
+  <div id="timer"></div>
+
+  <button id="microgBtn" class="btn">MicroG</button>
+  <div id="timerMicroG"></div>
+
+  <!-- Media Sosial -->
+  <div class="social">
+    <a href="https://facebook.com" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://t.me/YourTelegramChannel" target="_blank" title="Telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+    <a href="mailto:youremail@gmail.com" title="Gmail">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+    const microgBtn = document.getElementById('microgBtn');
+    const timerText = document.getElementById('timer');
+    const timerMicroG = document.getElementById('timerMicroG');
+
+    const revancedDirectlink = 'https://example-directlink.com';
+    const revancedRealLink = 'https://example.com/youtube-revanced.apk';
+
+    const microgDirectlink = 'https://example-directlink2.com';
+    const microgRealLink = 'https://example.com/microg.apk';
+
+    let revancedStarted = false;
+    let microgStarted = false;
+
+    downloadBtn.addEventListener('click', () => {
+      if (!revancedStarted) {
+        revancedStarted = true;
+        window.open(revancedDirectlink, '_blank');
+        let time = 15;
+        timerText.textContent = `Tunggu ${time} detik untuk download...`;
+
+        const revancedCountdown = setInterval(() => {
+          time--;
+          timerText.textContent = `Tunggu ${time} detik untuk download...`;
+          if (time <= 0) {
+            clearInterval(revancedCountdown);
+            downloadBtn.style.backgroundColor = '#007bff';
+            downloadBtn.textContent = 'Download Asli';
+            downloadBtn.onclick = () => {
+              window.location.href = revancedRealLink;
+            };
+            timerText.textContent = 'Klik lagi untuk download file.';
+          }
+        }, 1000);
+      }
+    });
+
+    microgBtn.addEventListener('click', () => {
+      if (!microgStarted) {
+        microgStarted = true;
+        window.open(microgDirectlink, '_blank');
+        let time = 15;
+        timerMicroG.textContent = `Tunggu ${time} detik untuk download MicroG...`;
+
+        const microgCountdown = setInterval(() => {
+          time--;
+          timerMicroG.textContent = `Tunggu ${time} detik untuk download MicroG...`;
+          if (time <= 0) {
+            clearInterval(microgCountdown);
+            microgBtn.style.backgroundColor = '#007bff';
+            microgBtn.textContent = 'Download MicroG';
+            microgBtn.onclick = () => {
+              window.location.href = microgRealLink;
+            };
+            timerMicroG.textContent = 'Klik lagi untuk download file.';
+          }
+        }, 1000);
+      }
+    });
+  </script>
+
+</body>
+</html>
